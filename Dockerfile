@@ -6,7 +6,7 @@ FROM tootsuite/mastodon:v4.2.8
 
 # 安装 wget（如果基础镜像中不存在）
 # RUN apt-get update && apt-get install -y wget
-
+RUN npm install concurrently@8.2.2
 
 # 定义环境变量
 ENV ALTERNATE_DOMAINS=${ALTERNATE_DOMAINS} \
