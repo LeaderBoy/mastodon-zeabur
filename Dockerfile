@@ -2,7 +2,7 @@
 FROM tootsuite/mastodon:v4.2.8
 
 # 设置工作目录
-WORKDIR /app
+# WORKDIR /app
 
 # 安装 wget（如果基础镜像中不存在）
 # RUN apt-get update && apt-get install -y wget
