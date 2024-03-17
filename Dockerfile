@@ -5,10 +5,8 @@ FROM tootsuite/mastodon:v4.2.8
 WORKDIR /app
 
 # 复制启动脚本到镜像中
-COPY start.sh /app/start.sh
-
-# 添加可执行权限
-RUN chmod +x /app/start.sh
+# 复制启动脚本到镜像中并设置权限
+COPY --chmod=+x start.sh /app/start.sh
 
 
 # 定义环境变量
