@@ -4,11 +4,11 @@ FROM tootsuite/mastodon:v4.2.8
 # 设置工作目录
 WORKDIR /app
 
-# 安装 wget
-RUN apt-get update && apt-get install -y wget
+# 复制启动脚本到镜像中
+COPY start.sh /app/start.sh
 
-# 下载启动脚本并执行
-RUN wget -O start.sh https://raw.githubusercontent.com/LeaderBoy/mastodon-railway-template/main/start.sh && chmod +x start.sh
+# 添加可执行权限
+RUN chmod +x /app/start.sh
 
 
 # 定义环境变量
