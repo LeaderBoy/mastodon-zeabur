@@ -6,15 +6,6 @@ FROM tootsuite/mastodon:v4.2.8
 
 # 安装 wget（如果基础镜像中不存在）
 # RUN apt-get update && apt-get install -y wget
-# 安装curl和nvm来管理Node.js版本
-RUN apt-get update && apt-get install -y curl gcc g++ make python
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-# 安装并使用特定版本的Node.js
-SHELL ["bash", "-c"]
-RUN source $HOME/.nvm/nvm.sh && \
-    nvm install 20.10.0 && \
-    nvm alias default 20.10.0 && \
-    nvm use default
 
 # 定义环境变量
 ENV ALTERNATE_DOMAINS=${ALTERNATE_DOMAINS} \
@@ -60,4 +51,6 @@ EXPOSE 3000
 ENTRYPOINT ["/usr/bin/tini", "--"]
 
 # 当容器启动时执行的命令。bash -c 确保整个 wget 命令串在 bash 子shell 中执行。
-CMD ["bash", "-c", "wget -q -O - https://raw.githubusercontent.com/LeaderBoy/mastodon-railway-template/main/start.sh | bash"]
+# CMD ["bash", "-c", "wget -q -O - https://raw.githubusercontent.com/LeaderBoy/mastodon-railway-template/main/start.sh | bash"]
+# 启动 Puma Web 进程
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
