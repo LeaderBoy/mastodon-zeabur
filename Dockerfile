@@ -4,8 +4,8 @@ FROM tootsuite/mastodon:v4.2.8
 # 设置工作目录
 WORKDIR /app
 
-# 复制启动脚本到镜像中并设置权限
-COPY --chmod=+x start.sh /app/start.sh
+# 安装 wget（如果基础镜像中不存在）
+RUN apt-get update && apt-get install -y wget
 
 
 # 定义环境变量
@@ -47,8 +47,8 @@ ENV ALTERNATE_DOMAINS=${ALTERNATE_DOMAINS} \
 EXPOSE 3000
 
 
-# 调整启动命令
+# 整合 tini 作为容器入口点。请确定基础镜像中已经包含了 tini，否则需要安装它。
 ENTRYPOINT ["/usr/bin/tini", "--"]
 
-# 启动命令
-CMD ["/app/start.sh"]
+# 当容器启动时执行的命令。bash -c 确保整个 wget 命令串在 bash 子shell 中执行。
+CMD ["bash", "-c", "wget -q -O - https://raw.githubusercontent.com/LeaderBoy/mastodon-railway-template/main/start.sh | bash"]
