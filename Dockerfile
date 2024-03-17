@@ -4,7 +4,6 @@ FROM tootsuite/mastodon:v4.2.8
 # 设置工作目录
 WORKDIR /app
 
-# 复制启动脚本到镜像中
 # 复制启动脚本到镜像中并设置权限
 COPY --chmod=+x start.sh /app/start.sh
 
@@ -48,5 +47,8 @@ ENV ALTERNATE_DOMAINS=${ALTERNATE_DOMAINS} \
 EXPOSE 3000
 
 
+# 调整启动命令
+ENTRYPOINT ["/usr/bin/tini", "--"]
+
 # 启动命令
-CMD ["./start.sh"]
+CMD ["/app/start.sh"]
