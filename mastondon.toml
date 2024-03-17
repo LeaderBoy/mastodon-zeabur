@@ -1,75 +1,75 @@
-#:schema ./schema.json
+# #:schema ./schema.json
 
-id = "mastondon"
-name = "Mastondon"
-icon = "https://dev-to-uploads.s3.amazonaws.com/uploads/organization/profile_image/6720/caee4597-8613-4fdc-902a-955dea9855b4.png"
-description = "Mastondon web server"
+# id = "mastondon"
+# name = "Mastondon"
+# icon = "https://dev-to-uploads.s3.amazonaws.com/uploads/organization/profile_image/6720/caee4597-8613-4fdc-902a-955dea9855b4.png"
+# description = "Mastondon web server"
 
-[source]
-image = "tootsuite/mastodon:v4.2.8"
-command = [
-    "/usr/bin/tini -- bash -c 'wget -q -O - https://raw.githubusercontent.com/LeaderBoy/mastodon-railway-template/main/start.sh | bash'",
-]
-
-
-# args = [
-#   "-c",
-#   "echo -ne 'file_uploads = On\nmemory_limit = 10M\nupload_max_filesize = 10M\npost_max_size = 10M\nmax_execution_time = 120' > /usr/local/etc/php/conf.d/upload.ini && docker-entrypoint.sh apache2-foreground"
+# [source]
+# image = "tootsuite/mastodon:v4.2.8"
+# command = [
+#     "/usr/bin/tini -- bash -c 'wget -q -O - https://raw.githubusercontent.com/LeaderBoy/mastodon-railway-template/main/start.sh | bash'",
 # ]
 
 
-# image = "quay.io/minio/minio:latest"
-# command = ["/bin/bash"]
-# args = ["-c", "minio server /data --console-address :9090"]
+# # args = [
+# #   "-c",
+# #   "echo -ne 'file_uploads = On\nmemory_limit = 10M\nupload_max_filesize = 10M\npost_max_size = 10M\nmax_execution_time = 120' > /usr/local/etc/php/conf.d/upload.ini && docker-entrypoint.sh apache2-foreground"
+# # ]
 
 
-# id = "logto"
-# name = "Logto"
-# icon = "https://dev-to-uploads.s3.amazonaws.com/uploads/organization/profile_image/6720/caee4597-8613-4fdc-902a-955dea9855b4.png"
-# description = "The open-source alternative to Auth0, shaping the future of identity development for individuals and businesses of all sizes and project scopes."
-# docs = "https://zeabur.com/docs/marketplace/logto"
-
-# [source]
-# image = "svhd/logto:1.10"
-# command = ["sh"]
-# args = ["-c", "npm run cli db seed -- --swe && npm start"]
+# # image = "quay.io/minio/minio:latest"
+# # command = ["/bin/bash"]
+# # args = ["-c", "minio server /data --console-address :9090"]
 
 
-[[ports]]
-id = "web"
-port = 3000
-type = "HTTP"
+# # id = "logto"
+# # name = "Logto"
+# # icon = "https://dev-to-uploads.s3.amazonaws.com/uploads/organization/profile_image/6720/caee4597-8613-4fdc-902a-955dea9855b4.png"
+# # description = "The open-source alternative to Auth0, shaping the future of identity development for individuals and businesses of all sizes and project scopes."
+# # docs = "https://zeabur.com/docs/marketplace/logto"
+
+# # [source]
+# # image = "svhd/logto:1.10"
+# # command = ["sh"]
+# # args = ["-c", "npm run cli db seed -- --swe && npm start"]
 
 
-[env]
-ALTERNATE_DOMAINS = { default = "${ALTERNATE_DOMAINS}", expose = true, readonly = true }
-AWS_ACCESS_KEY_ID = { default = "${AWS_ACCESS_KEY_ID}", expose = true, readonly = true }
-AWS_SECRET_ACCESS_KEY = { default = "${AWS_SECRET_ACCESS_KEY}", expose = true, readonly = true }
-DATABASE_URL = { default = "${DATABASE_URL}", expose = true, readonly = true }
-IP_RETENTION_PERIOD = { default = "${IP_RETENTION_PERIOD}", expose = true, readonly = true }
-LIMITED_FEDERATION_MODE = { default = "${LIMITED_FEDERATION_MODE}", expose = true, readonly = true }
-LOCAL_DOMAIN = { default = "${LOCAL_DOMAIN}", expose = true, readonly = true }
-OTP_SECRET = { default = "${OTP_SECRET}", expose = true, readonly = true }
-PREPARED_STATEMENTS = { default = "${PREPARED_STATEMENTS}", expose = true, readonly = true }
-RAILS_LOG_LEVEL = { default = "${RAILS_LOG_LEVEL}", expose = true, readonly = true }
-REDIS_URL = { default = "${REDIS_URL}", expose = true, readonly = true }
-S3_BUCKET = { default = "${S3_BUCKET}", expose = true, readonly = true }
-S3_ENABLED = { default = "${S3_ENABLED}", expose = true, readonly = true }
-S3_ENDPOINT = { default = "${S3_ENDPOINT}", expose = true, readonly = true }
-S3_PERMISSION = { default = "${S3_PERMISSION}", expose = true, readonly = true }
-S3_PROTOCOL = { default = "${S3_PROTOCOL}", expose = true, readonly = true }
-S3_REGION = { default = "${S3_REGION}", expose = true, readonly = true }
-S3_ALIAS_HOST = { default = "${S3_ALIAS_HOST}", expose = true, readonly = true }
-SECRET_KEY_BASE = { default = "${SECRET_KEY_BASE}", expose = true, readonly = true }
-SESSION_RETENTION_PERIOD = { default = "${SESSION_RETENTION_PERIOD}", expose = true, readonly = true }
-SMTP_FROM_ADDRESS = { default = "${SMTP_FROM_ADDRESS}", expose = true, readonly = true }
-SMTP_LOGIN = { default = "${SMTP_LOGIN}", expose = true, readonly = true }
-SMTP_PASSWORD = { default = "${SMTP_PASSWORD}", expose = true, readonly = true }
-SMTP_PORT = { default = "${SMTP_PORT}", expose = true, readonly = true }
-SMTP_SERVER = { default = "${SMTP_SERVER}", expose = true, readonly = true }
-STREAMING_API_BASE_URL = { default = "${STREAMING_API_BASE_URL}", expose = true, readonly = true }
-VAPID_PRIVATE_KEY = { default = "${VAPID_PRIVATE_KEY}", expose = true, readonly = true }
-VAPID_PUBLIC_KEY = { default = "${VAPID_PUBLIC_KEY}", expose = true, readonly = true }
-SMTP_ENABLE_STARTTLS_AUTO = { default = "${SMTP_ENABLE_STARTTLS_AUTO}", expose = true, readonly = true }
-OWNER_USERNAME = { default = "${OWNER_USERNAME}", expose = true, readonly = true }
-OWNER_EMAIL = { default = "${OWNER_EMAIL}", expose = true, readonly = true }
+# [[ports]]
+# id = "web"
+# port = 3000
+# type = "HTTP"
+
+
+# [env]
+# ALTERNATE_DOMAINS = { default = "${ALTERNATE_DOMAINS}", expose = true, readonly = true }
+# AWS_ACCESS_KEY_ID = { default = "${AWS_ACCESS_KEY_ID}", expose = true, readonly = true }
+# AWS_SECRET_ACCESS_KEY = { default = "${AWS_SECRET_ACCESS_KEY}", expose = true, readonly = true }
+# DATABASE_URL = { default = "${DATABASE_URL}", expose = true, readonly = true }
+# IP_RETENTION_PERIOD = { default = "${IP_RETENTION_PERIOD}", expose = true, readonly = true }
+# LIMITED_FEDERATION_MODE = { default = "${LIMITED_FEDERATION_MODE}", expose = true, readonly = true }
+# LOCAL_DOMAIN = { default = "${LOCAL_DOMAIN}", expose = true, readonly = true }
+# OTP_SECRET = { default = "${OTP_SECRET}", expose = true, readonly = true }
+# PREPARED_STATEMENTS = { default = "${PREPARED_STATEMENTS}", expose = true, readonly = true }
+# RAILS_LOG_LEVEL = { default = "${RAILS_LOG_LEVEL}", expose = true, readonly = true }
+# REDIS_URL = { default = "${REDIS_URL}", expose = true, readonly = true }
+# S3_BUCKET = { default = "${S3_BUCKET}", expose = true, readonly = true }
+# S3_ENABLED = { default = "${S3_ENABLED}", expose = true, readonly = true }
+# S3_ENDPOINT = { default = "${S3_ENDPOINT}", expose = true, readonly = true }
+# S3_PERMISSION = { default = "${S3_PERMISSION}", expose = true, readonly = true }
+# S3_PROTOCOL = { default = "${S3_PROTOCOL}", expose = true, readonly = true }
+# S3_REGION = { default = "${S3_REGION}", expose = true, readonly = true }
+# S3_ALIAS_HOST = { default = "${S3_ALIAS_HOST}", expose = true, readonly = true }
+# SECRET_KEY_BASE = { default = "${SECRET_KEY_BASE}", expose = true, readonly = true }
+# SESSION_RETENTION_PERIOD = { default = "${SESSION_RETENTION_PERIOD}", expose = true, readonly = true }
+# SMTP_FROM_ADDRESS = { default = "${SMTP_FROM_ADDRESS}", expose = true, readonly = true }
+# SMTP_LOGIN = { default = "${SMTP_LOGIN}", expose = true, readonly = true }
+# SMTP_PASSWORD = { default = "${SMTP_PASSWORD}", expose = true, readonly = true }
+# SMTP_PORT = { default = "${SMTP_PORT}", expose = true, readonly = true }
+# SMTP_SERVER = { default = "${SMTP_SERVER}", expose = true, readonly = true }
+# STREAMING_API_BASE_URL = { default = "${STREAMING_API_BASE_URL}", expose = true, readonly = true }
+# VAPID_PRIVATE_KEY = { default = "${VAPID_PRIVATE_KEY}", expose = true, readonly = true }
+# VAPID_PUBLIC_KEY = { default = "${VAPID_PUBLIC_KEY}", expose = true, readonly = true }
+# SMTP_ENABLE_STARTTLS_AUTO = { default = "${SMTP_ENABLE_STARTTLS_AUTO}", expose = true, readonly = true }
+# OWNER_USERNAME = { default = "${OWNER_USERNAME}", expose = true, readonly = true }
+# OWNER_EMAIL = { default = "${OWNER_EMAIL}", expose = true, readonly = true }
