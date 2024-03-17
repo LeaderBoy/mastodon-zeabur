@@ -5,7 +5,7 @@ FROM tootsuite/mastodon:v4.2.8
 WORKDIR /app
 
 # 安装 wget（如果基础镜像中不存在）
-RUN apt-get update && apt-get install -y wget
+# RUN apt-get update && apt-get install -y wget
 
 
 # 定义环境变量
