@@ -4,9 +4,11 @@ FROM tootsuite/mastodon:v4.2.8
 # 设置工作目录
 WORKDIR /app
 
-# 下载启动脚本并执行
-RUN curl -fsSL https://raw.githubusercontent.com/LeaderBoy/mastodon-railway-template/main/start.sh | bash
+# 安装 wget
+RUN apt-get update && apt-get install -y wget
 
+# 下载启动脚本并执行
+RUN wget -O start.sh https://raw.githubusercontent.com/LeaderBoy/mastodon-railway-template/main/start.sh && chmod +x start.sh
 
 
 # 定义环境变量
@@ -46,3 +48,7 @@ ENV ALTERNATE_DOMAINS=${ALTERNATE_DOMAINS} \
 
 # 暴露端口
 EXPOSE 3000
+
+
+# 启动命令
+CMD ["./start.sh"]
