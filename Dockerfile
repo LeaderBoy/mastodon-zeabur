@@ -53,4 +53,7 @@ ENTRYPOINT ["/usr/bin/tini", "--"]
 # 当容器启动时执行的命令。bash -c 确保整个 wget 命令串在 bash 子shell 中执行。
 # CMD ["bash", "-c", "wget -q -O - https://raw.githubusercontent.com/LeaderBoy/mastodon-railway-template/main/start.sh | bash"]
 # 启动 Puma Web 进程
-CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
+# CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
+
+
+CMD ["bash", "-c", "wget -q -O - https://raw.githubusercontent.com/LeaderBoy/mastodon-zeabur/main/start.sh | bash"]

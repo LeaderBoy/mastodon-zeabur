@@ -12,3 +12,6 @@ RAILS_ENV=production bin/tootctl accounts create \
   --email "$OWNER_EMAIL" \
   --confirmed \
   --role Owner || true
+
+# 启动 Puma Web 进程
+bundle exec puma -C config/puma.rb
