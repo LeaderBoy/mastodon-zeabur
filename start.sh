@@ -13,5 +13,8 @@ RAILS_ENV=production bin/tootctl accounts create \
   --confirmed \
   --role Owner || true
 
+# Step 3: Deploy the search functionality
+RAILS_ENV=production bin/tootctl search deploy
+
 # 启动 Puma Web 进程
 bundle exec puma -C config/puma.rb
