@@ -15,9 +15,9 @@ RAILS_ENV=production bin/tootctl accounts create \
 
 
 # Step 3: Deploy the search functionality
-RAILS_ENV=production bin/tootctl search deploy
-
-RAILS_ENV=production bin/tootctl search index
+# RAILS_ENV=production bin/tootctl search deploy
+# # 必须执行此条来建立旧文章的索引
+# RAILS_ENV=production bin/tootctl search index
 
 
 # 启动 Puma Web 进程
