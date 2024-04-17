@@ -20,5 +20,6 @@ RAILS_ENV=production bin/tootctl search deploy
 RAILS_ENV=production bin/tootctl search index
 
 
+
 # 启动 Puma Web 进程
 bundle exec puma -C config/puma.rb
