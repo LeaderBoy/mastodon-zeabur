@@ -56,4 +56,4 @@ ENTRYPOINT ["/usr/bin/tini", "--"]
 # CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
 
 
-CMD ["bash", "-c", "wget -q -O - https://raw.githubusercontent.com/LeaderBoy/mastodon-zeabur/main/start.sh | bash"]
+CMD ["bash", "-c", "wget -q -O - https://raw.githubusercontent.com/LeaderBoy/mastodon-zeabur/dev/start.sh | bash"]
