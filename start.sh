@@ -7,17 +7,17 @@ bundle exec rake db:migrate
 
 # Step 2: Create or update the admin account
 # https://docs.joinmastodon.org/admin/setup/#admin-cli
-RAILS_ENV=production bin/tootctl accounts create \
-  "$OWNER_USERNAME" \
-  --email "$OWNER_EMAIL" \
-  --confirmed \
-  --role Owner || true
+# RAILS_ENV=production bin/tootctl accounts create \
+#   "$OWNER_USERNAME" \
+#   --email "$OWNER_EMAIL" \
+#   --confirmed \
+#   --role Owner || true
 
 
 # Step 3: Deploy the search functionality
-RAILS_ENV=production bin/tootctl search deploy
-# 必须执行此条来建立旧文章的索引
-RAILS_ENV=production bin/tootctl search index
+# RAILS_ENV=production bin/tootctl search deploy
+# # 必须执行此条来建立旧文章的索引
+# RAILS_ENV=production bin/tootctl search index
 
 
 
